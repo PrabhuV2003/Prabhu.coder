@@ -10,8 +10,11 @@ import CTA from './component/CTA.jsx'
 import Footer from './component/Footer.jsx'
 import Contact from './component/Contact.jsx'
 import { ToastContainer } from 'react-toastify'
+import useScrollReveal from './hooks/useScrollReveal.jsx'
 
 const App = () => {
+
+  useScrollReveal();
 
   useEffect(() => {
     document.title = "Prabhu V — Full-Stack Developer"
