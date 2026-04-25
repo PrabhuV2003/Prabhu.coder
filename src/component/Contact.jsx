@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from '
 
 const Contact = () => {
 
+  const [result, setResult] = useState("");
+
   const BUDGETS = [
     "< $5K",
     "$5K - $15K",
@@ -51,18 +53,46 @@ const Contact = () => {
       return;
     }
     setSubmitting(true);
-    // Mock submission - save to localStorage for noe
-    await new Promise((r) => setTimeout(r, 900));
-    const existing = JSON.parese(localStorage.getItem("contact_submissions") || "[]");
-    existing.push({ ...form, at: new Date().toISOString() });
-    localStorage.setItem("contact_submissions", JSON.stringify(existing));
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "98290baf-b80c-4f03-bed0-e3a6f72b49dd",
+          subject: `New inquiry from ${form.name}`,
+          from_name: form.name,
+          email: form.email,
+          company: form.company,
+          service: form.service,
+          budget: form.budget,
+          message: form.message,
+        }),
+      });
+
+      const data = await res.json();
+      console.log("Web3Forms response:", data);
+      
+      if (data.success) {
+        setResult("Message sent successfully.");
+        toast.success('Message sent');
+        setForm({ name: "", email: "", company: "", service: "", budget: "", message: "" });
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        setResult(data.message || "Failed to send message.");
+        toast.error(data.message || "Failed to send message");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setResult("Failed to send message.");
+      toast.error("Failed to send message");
+    }
+
     setSubmitting(false);
-    setSubmitted(true);
-    toast.success(
-      'Message sent'
-    );
-    setForm({ name: "", email: "", company: "", service: "", budget: "", message: "" });
-    setTimeout(() => setSubmitted(false), 3000)
   };
 
 
@@ -212,7 +242,7 @@ const Contact = () => {
                   <Label htmlFor="message" className=" text-[13px] font-medium text-slate-700 " >
                     Project details *
                   </Label>
-                  <Textarea id="message" value={form.value} onChange={update("message")} placeholder="Tell me about your project, goals and timelines..." rows={5} className="mt-2 rounded-xl border-slate-200 bg-slate-50/60 focus-visible:ring-blue-500 resize-none" />
+                  <Textarea id="message" value={form.message} onChange={update("message")} placeholder="Tell me about your project, goals and timelines..." rows={5} className="mt-2 rounded-xl border-slate-200 bg-slate-50/60 focus-visible:ring-blue-500 resize-none" />
                 </div>
               </div>
 
