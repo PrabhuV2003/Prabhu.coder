@@ -1,5 +1,6 @@
 import React from 'react'
 import { LuCheckCheck } from 'react-icons/lu'
+import Prabhu from '../assets/profile.jpg'
 
 const About = () => {
   return (
@@ -17,8 +18,10 @@ const About = () => {
             </h2>
             <div className="reveal reveal-delay-2 mt-6 p-6 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-sky-50 border border-blue-100">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
-                  PV
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center text-white font-bold text-xl shadow-md overflow-hidden ">
+                  
+                  <img src={Prabhu} alt="Prabhu V" className=' w-full h-full object-cover scale-125 ' />
+
                 </div>
                 <div>
                   <div className="font-semibold text-slate-900">

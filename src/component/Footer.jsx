@@ -18,7 +18,7 @@ const Footer = () => {
       links: [
         { label: "Contact", href: "#contact" },
         { label: "Testimonials", href: "#testimonials" },
-        { label: "Email", href: `mailto:prabhu.coder@gmail.com` },
+        { label: "Email", href: `mailto:heyprabhu.coder@gmail.com` },
         { label: "Schedule call", href: "#contact" },
       ]
     }
@@ -86,8 +86,8 @@ const Footer = () => {
                 Book Me
               </span>
             </div>
-            <a href={`mailto:prabhu.coder.com`} className="mt-5 inline-block font-mono text-[13.5px] stat-underline text-slate-900 hover:text-blue-600 transition-colors" >
-              prabhu.coder@gmail.com
+            <a href={`mailto:heyprabhu.coder@gmail.com`} className="mt-5 inline-block font-mono text-[13.5px] stat-underline text-slate-900 hover:text-blue-600 transition-colors" >
+              heyprabhu.coder@gmail.com
             </a>
           </div>
         </div>

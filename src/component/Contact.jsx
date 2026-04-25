@@ -45,7 +45,7 @@ const Contact = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      toast.info(
+      toast.warning(
         "Missing Info"
       )
       return;
@@ -86,7 +86,7 @@ const Contact = () => {
             </p>
 
             <div className=' reveal reveal-delay-3 mt-8 space-y-3 '>
-              <a href="mailto:prabhu.coder@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/40 transition-colors group" >
+              <a href="mailto:heyprabhu.coder@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/40 transition-colors group" >
                 <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                   <LuMail className=' w-5 h-5 ' />
                 </div>
@@ -95,7 +95,7 @@ const Contact = () => {
                     Email
                   </div>
                   <div className=' text-[15px] font-medium text-slate-900 '>
-                    prabhu.coder@gmail.com
+                    heyprabhu.coder@gmail.com
                   </div>
                 </div>
               </a>
@@ -234,7 +234,7 @@ const Contact = () => {
                     ) : (
                     <>
                       Send message
-                      <LuSend className=' w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform ' />
+                      <LuSend className=' w-6 h-6 ml-2 group-hover:translate-x-0.5 transition-transform ' />
                     </>
                     )
                   }

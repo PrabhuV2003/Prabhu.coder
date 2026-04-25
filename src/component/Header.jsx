@@ -156,10 +156,10 @@ export default function Header() {
           className="flex items-center gap-2 group"
         >
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-            <span className="text-white font-bold text-sm font-mono">A.</span>
+            <span className="text-white font-bold text-sm font-mono">P.</span>
           </div>
           <span className="font-semibold tracking-tight text-slate-900 text-[17px]">
-            Alex Morgan
+            Prabhu V
           </span>
         </a>
 
